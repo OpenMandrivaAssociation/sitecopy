@@ -1,5 +1,5 @@
 %define version 0.16.3
-%define release 1mdk
+%define release %mkrel 1
 
 Name:		sitecopy
 Version:	%{version}
