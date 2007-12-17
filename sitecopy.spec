@@ -10,7 +10,6 @@ Group:		Networking/File transfer
 Source0:	http://www.lyra.org/sitecopy/sitecopy-%{version}.tar.bz2
 Source1:	%{name}.bash-completion.bz2
 URL:		http://www.lyra.org/sitecopy/
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	openssl-devel
 BuildRequires:	krb5-devel
 
