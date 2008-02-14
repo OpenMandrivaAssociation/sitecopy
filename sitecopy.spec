@@ -7,6 +7,7 @@ Release:	%{release}
 Summary:	Tool for easily maintaining remote web sites
 License:	GPL
 Group:		Networking/File transfer
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source0:	http://www.lyra.org/sitecopy/sitecopy-%{version}.tar.bz2
 Source1:	%{name}.bash-completion.bz2
 URL:		http://www.lyra.org/sitecopy/
