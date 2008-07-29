@@ -1,5 +1,5 @@
 %define version 0.16.3
-%define release %mkrel 1
+%define release %mkrel 3
 
 Name:		sitecopy
 Version:	%{version}
