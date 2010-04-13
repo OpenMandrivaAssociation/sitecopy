@@ -9,10 +9,10 @@ License:	GPL
 Group:		Networking/File transfer
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source0:	http://www.lyra.org/sitecopy/sitecopy-%{version}.tar.bz2
-Source1:	%{name}.bash-completion.bz2
+Source1:	%{name}.bash-completion
+Patch0:		configure-0.16.6.patch
 URL:		http://www.lyra.org/sitecopy/
-BuildRequires:	openssl-devel
-BuildRequires:	krb5-devel
+BuildRequires:	neon-devel
 
 %description
 sitecopy allows you to easily maintain remote Web sites.  The program
@@ -25,25 +25,21 @@ supported.
 
 %prep
 %setup -q
-bzcat %{SOURCE1} > %{name}.bash-completion
+%patch0 -p1
 
 %build
-# vanilla sitecopy.
-mkdir sitecopy; cd sitecopy
-
-CONFIGURE_TOP=.. %configure2_5x \
+export CFLAGS="%optflags -fPIE"
+export LDFLAGS="%ldflags -pie"
+%configure2_5x \
 	--enable-debug \
 	--with-ssl \
-	--with-included-expat \
-	--with-included-neon \
+	--with-neon \
 	--disable-rsh
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-pushd sitecopy
 %makeinstall_std
-popd
 
 %find_lang %{name}
 
@@ -57,7 +53,7 @@ chmod 0644 COPYING ChangeLog INSTALL NEWS README* THANKS TODO
 rm -fr $RPM_BUILD_ROOT/%{_prefix}/doc
 
 install -d -m 755 $RPM_BUILD_ROOT%{_sysconfdir}/bash_completion.d
-install -m 644 %{name}.bash-completion $RPM_BUILD_ROOT%{_sysconfdir}/bash_completion.d/%{name}
+install -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/bash_completion.d/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
