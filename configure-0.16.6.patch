@@ -1,0 +1,11 @@
+--- sitecopy-0.16.6.org/configure	2010-01-16 11:01:28.356723042 +0530
++++ sitecopy-0.16.6/configure	2010-01-16 11:01:58.548723526 +0530
+@@ -8456,7 +8456,7 @@
+ echo "${ECHO_T}$ne_cv_lib_neon" >&6; }
+     if test "$ne_cv_lib_neon" = "yes"; then
+        ne_cv_lib_neonver=no
+-       for v in 24 25 26 27 28; do
++       for v in 24 25 26 27 28 29; do
+           case $ne_libver in
+           0.$v.*) ne_cv_lib_neonver=yes ;;
+           esac
