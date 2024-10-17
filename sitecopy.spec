@@ -11,7 +11,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source0:	http://www.lyra.org/sitecopy/sitecopy-%{version}.tar.bz2
 Source1:	%{name}.bash-completion
 Patch0:		configure-0.16.6.patch
-URL:		http://www.lyra.org/sitecopy/
+URL:		https://www.lyra.org/sitecopy/
 BuildRequires:	neon-devel
 
 %description
