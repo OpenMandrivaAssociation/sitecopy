@@ -12,6 +12,11 @@ Source0:	http://www.lyra.org/sitecopy/sitecopy-%{version}.tar.bz2
 Source1:	%{name}.bash-completion
 Patch0:		configure-0.16.6.patch
 URL:		https://www.lyra.org/sitecopy/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	neon-devel
 
 %description
